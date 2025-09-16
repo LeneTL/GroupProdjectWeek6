@@ -1,0 +1,41 @@
+body{
+    background-color: rgb(45, 42, 42);
+}
+
+.wrapper{
+    width: 100px;
+    height: 100px;
+    justify-self: center;
+    background-color: rgb(127, 182, 255); /* replace color with img when possible */
+}
+
+.sky{
+    width:2px;
+}
+
+.car{
+    width:2px
+}
+
+.speechContainer{
+display: none;
+}
+
+.items{
+display: none;
+}
+
+
+
+
+
+.winningScreen{
+    background-color: rgba(255, 255, 0, 0.5);
+    color:black;
+
+    width: 100px;
+    height: 100px;
+    display: none;
+    justify-self: center;
+    align-items:center;
+}
