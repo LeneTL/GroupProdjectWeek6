@@ -1,37 +1,98 @@
 function winning(){
-if(coolness= 100){
-showWinningScreen()
+if(coolness == maxCoolness){
+showWinningScreen();
 }
 }
 
 
-function showRandomEvent(){
-    const randomIndex = Math.floor(Math.random()*events.length);
-    currentEvent = events[randomIndex];
+var yesBtn = document.querySelector("#yes-btn");
+var noBtn = document.querySelector("#no-btn");
 
-    document.getElementById("events").innerText = currentEvent.text + "Vil du plukke det opp?";
-    document.getElementById("buttons").style.display = "block";
+function startGame(){
+    resetGame();
+    updateBar(getCoolness());
+    nextEvent();
 }
+
+function nextEvent(){
+    var event = getRandomEvent();
+    showEventText(event.text + "Vil du plukke det opp?????");
+    showButtons();
+;}
 
 function acceptEvent(){
-    coolness += currentEvent.coolness
-    if(coolness>maxCoolness) coolness = maxCoolness
-    if(coolness<0) coolness = 0;
-    updateBar();
-    document.getElementById("event").innerText = "✅ Du tok det!"
-    document.getElementById("buttons").style.display = "none";
+    shangeCoolness(currectEvent.coolness);
+    updateBar(getCoolness());
+    showEventText("Du tok det!" + currentEvent.coolness)
+    hideButtons();
+    setTimeout(nextEvent, 1500);
 }
-
 
 function declineEvent(){
-    document.getElementById("event").innerText = "Du ignorerte det. Du kjører videre";
-    document.getElementById("buttons").style.display = "none";
+    showEvent ("Du ignorerte det.");
+    hideButtons();
+    setTimeout(nextEvent, 1500);
 }
 
+yesBtn.onlick = acceptEvent;
+noBtn.onlcik = declineEvent;
 
-
-//function startTicking(){}
-
-
+window.onload = startGame;
 
 //correctGreeting(){}
+//-----------------------------------ColorChoices
+function acceptColorChoice(){
+    currentCarColor = bucketEventRGBA;
+    coolness = bucketEventScore;
+    bucketEventRGBA = null;
+    bucketEventScore = null;
+    nextEvent();
+}
+
+function declineColorChoice(){
+    bucketEventRGBA = null;
+    bucketEventScore = null;
+    nextEvent();
+}
+//-----------------------------------ItemChoices
+function acceptItemChoice(){
+    coolness = itemsEventScore;
+    itemsEventImg = null;
+    itemsEventScore = null;
+    nextEvent();
+}
+
+function declineItemChoice(){
+    itemsEventImg = null;
+    itemsEventScore = null;
+    nextEvent();
+}
+
+//-------------------------------------Next Event
+function nextEvent(){
+    let randomizedEvent = Math.floor(Math.random() * 3);
+    if(randomizedEvent == 1){
+        randomizedBucketColor();
+    }else if(randomizedEvent == 2){
+        randomizedItemImg();
+    }else if(randomizedEvent == 3){
+        //Friend
+    }
+updateview()
+}
+
+function startGame(){
+    nextEvent();
+}
+//--------------------------------------Randomizers
+function  randomizedBucketColor(){
+    let randomizedIndex = Math.floor(Math.random() * possibleCarColorsRGBA.length);
+    bucketEventRGBA = possibleCarColorsRGBA[randomizedIndex];
+    bucketEventScore = possibleCarColorScores[randomizedIndex];
+}
+function  randomizedItemImg(){
+    let randomizedIndex = Math.floor(Math.random() * possibleItemImg.length);
+    itemsEventImg = possibleItemImg[randomizedIndex];
+    itemsEventScore = possibleItemScores[randomizedIndex];
+}
+

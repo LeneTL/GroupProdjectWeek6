@@ -2,31 +2,24 @@ body{
     background-color: rgb(45, 42, 42);
 }
 
-.wrapper{
-    width: 100px;
-    height: 100px;
+.wrap{
+    width: 500px;
+    height: 500px;
     justify-self: center;
     background-color: rgb(127, 182, 255); /* replace color with img when possible */
 }
 
-.sky{
-    width:2px;
-}
-
 .car{
-    width:2px
+    width: 100px;
+    height: 100px;
+    justify-self: center;
 }
 
-.speechContainer{
-display: none;
+.bucket{
+    width: 50px;
+    height: 50px;
+    
 }
-
-.items{
-display: none;
-}
-
-
-
 
 
 .winningScreen{
@@ -38,4 +31,33 @@ display: none;
     display: none;
     justify-self: center;
     align-items:center;
+}
+
+
+#bar-container {
+  width: 300px;
+  height: 30px;
+  border: 2px solid #000;
+  background-color: #eee;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: limegreen;
+  transition: width 0.3s;
+}
+
+#percentage {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+#buttons {
+  margin-top: 10px;
 }

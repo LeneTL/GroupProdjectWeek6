@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Coolest car</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="view.js"></script>
-    <script src="controller.js"></script>
-    <script src="model.js"></script>
+    <script defer src="Javascript/view.js"></script>
+    <script src="Javascript/controller.js"></script>
+    <script src="Javascript/model.js"></script>
 <!-- 
 Timeplan:
 Tirsdag: 13:30-14:30 =1h
@@ -17,21 +17,9 @@ Fredag:  10:00-11:30 =1h 30
 -->
 </head>
 <body>
-<div id="app"></div>
+<div id="app" class="wrap"></div>
     
-<H1>Coolness meter</H1>
-<div id="bar-container">
-<div id="bar-fill"></div>
-<div id="percentage"></div>
 
-<p id="event">Click to begin</p>
-
-<div id="buttons" style="display: none;">
-    <button onclick="acceptEvent()">Ja</button>
-    <button onclick="declineEvent()">Nei</button>
-</div>
-
-
-</div>
+<script>startGame();</script>
 </body>
 </html>
