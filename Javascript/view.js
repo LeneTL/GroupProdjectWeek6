@@ -4,10 +4,12 @@ document.getElementById('app').innerHTML = /*HTML*/`
 
 
 
-<div class="car" style="background-color: ${currentCarColor};">CAR</div>
+<Img class="car" src="Images/${currentCarColor}"/>
+<br>
 ${showColorChoice()}
 ${showItemChoice()}
-<div></div>
+${showWinningScreen()}
+<div>${coolness}</div>
 <div></div>
 
 <H1>Coolness meter</H1>
@@ -28,11 +30,11 @@ ${showItemChoice()}
 
 
 function showColorChoice(){
-    if(bucketEventRGBA == null){
+    if(bucketEventImg == null){
     return "";
     }else{
     return /*HTML*/`
-    <div class="bucket" style="background-color: ${bucketEventRGBA};">bucket</div>
+    <Img src="Images/${bucketEventImg}"/>
     <button onclick="acceptColorChoice()">Yes</button>
     <button onclick="declineColorChoice()">No</button>
     `;
@@ -41,29 +43,29 @@ function showColorChoice(){
 
 
 function showItemChoice(){
-if(itemEventImg == null){
+    if(itemsEventImg == null){
     return "";
-}else{
+    }else{
     return /*HTML*/`
-    <Img src="${itemsEventImg}">
+    <Img src="Images/${itemsEventImg}"/>
     <button onclick="acceptItemChoice()">Yes</button>
     <button onclick="declineItemChoice()">No</button>
-    `
-}
-}
-
-function showWinningScreen(){
-return /*HTML*/`
-<div class="winningScreen">
-    <p id="winningMsg">You're so cool, bro</p>
-</div>
-`
-
+    `;
+    }
 }
 
+function showWinningScreen(){ //gotta do the whole "if not 100, return empty" take away winning()
+    if(coolness <= maxCoolness){
+        return "";
+    }else{
+        return /*HTML*/`
+    <div class="winningScreen">You're so cool, bro</div> 
+    `;}
+    }
 
 
- var barFill = document.querySelector("#bar-fill");
+
+var barFill = document.querySelector("#bar-fill");
 var percentage = document.querySelector("#percentage");
 var eventText = document.querySelector("#event");
 var buttonsDiv = document.querySelector("#buttons");

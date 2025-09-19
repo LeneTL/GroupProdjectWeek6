@@ -10,8 +10,8 @@ body{
 }
 
 .car{
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 150px;
     justify-self: center;
 }
 
@@ -61,3 +61,9 @@ body{
 #buttons {
   margin-top: 10px;
 }
+
+button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 1em;
+    }
